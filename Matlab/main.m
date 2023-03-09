@@ -2,7 +2,7 @@ close all
 clear all
 
 %% гюцпсгхрэ оюпюлерпш хг тюикю
-rov_param 
+auv_param 
 
 %% ремгнп хмепжхх опълнсцнкэмни опхглш
 if ~exist("I0",'var') 
