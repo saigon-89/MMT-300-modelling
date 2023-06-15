@@ -63,6 +63,11 @@ g = @(eta)[ (m*9.81-B)*sin(eta(5));
 
 %% пюявер D(v)
 [D_LIN, D_QUAD] = rectangular_damping(L, H, W, rho, PF, PS, PT, M_RB, M_A, B, r_g_b, r_b_b);
+D_LIN(4:end,4:end) = abs( D_LIN(1:3,1:3) );
+D_LIN = abs(D_LIN); D_QUAD = abs(D_QUAD);
+D_LIN(4,4) = 999; D_QUAD(4,4) = 999;
+D_LIN(5,5) = 100; D_QUAD(5,5) = 100;
+D_LIN(6,6) = 100; D_QUAD(6,6) = 100;
 D = @(v)(D_LIN + D_QUAD.*abs(v));
 
 %% лндекхпнбюмхе дбхфемхъ (FEEDBACK CONTROL)
