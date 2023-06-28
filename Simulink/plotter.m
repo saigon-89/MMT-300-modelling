@@ -1,13 +1,25 @@
+XB1 = squeeze(out.BUOY_POS.signals(1).values(1,:,:));
+YB1 = squeeze(out.BUOY_POS.signals(1).values(2,:,:));
+XB2 = squeeze(out.BUOY_POS.signals(1).values(3,:,:));
+YB2 = squeeze(out.BUOY_POS.signals(1).values(4,:,:));
+X = squeeze(out.ETA.signals(1).values(:,1,:));
+Y = squeeze(out.ETA.signals(1).values(:,2,:));
+
 figure
-plot(squeeze(out.BUOY_POS.signals(1).values(1,:,:)), squeeze(out.BUOY_POS.signals(1).values(2,:,:)))
+plot(squeeze(out.BUOY_POS.signals(1).values(1,:,:)), squeeze(out.BUOY_POS.signals(1).values(2,:,:)), 'LineWidth', 2)
 hold on
-plot(squeeze(out.BUOY_POS.signals(1).values(3,:,:)), squeeze(out.BUOY_POS.signals(1).values(4,:,:)))
-plot(squeeze(out.ETA.signals(1).values(:,1,:)), squeeze(out.ETA.signals(1).values(:,2,:)))
-legend('buoy 1', 'buoy 2', 'AUV','Location', 'Best')
+plot(squeeze(out.BUOY_POS.signals(1).values(3,:,:)), squeeze(out.BUOY_POS.signals(1).values(4,:,:)), 'LineWidth', 2)
+plot(squeeze(out.ETA.signals(1).values(:,1,:)), squeeze(out.ETA.signals(1).values(:,2,:)), 'LineWidth', 2)
+legend('Buoy 1', 'Buoy 2', 'AUV','Location', 'Best')
 grid on
 xlabel('x, m')
 ylabel('y, m')
-
+str = {'-----Buoy 1: init position'};
+text(XB1(1),YB1(1),str)
+str = {'-----Buoy 2: init position'};
+text(XB2(1),YB2(1),str)
+str = {'-----AUV: init position'};
+text(X(1),Y(1),str)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 figure
 subplot(4,1,1)
